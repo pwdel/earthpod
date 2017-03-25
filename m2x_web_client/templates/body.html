@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+<span id="base">
+    <div class="pure-u-1 pure-u-md-2-3 both"><img class="pure-img" src="http://api-m2x.att.com/v2/charts/6962ca21ff5e0e07496899ae8f30cf08.png?width=800&height=600"></div>
+    <div class="pure-u-1 pure-u-md-1-3 both">
+      <h2 class="title">Water Volume</h2>
+      <ul>
+        <li><h4>Total water used: {{ flow_stream.get_total() }} L</h4></li>
+        <li><h4>Average volume of water per use: {{ flow_stream.get_mean() }} L</h4></li>
+        <li><h4>Most water used at once: {{ flow_stream.get_max() }} L</h4></li>
+        <li><h4>Number of faucet uses: {{ flow_stream.get_count() }}</h4></li>      
+      </ul>
+      <h2 class="title">Water Temperature</h2>
+      <ul>
+        <li><h4>Average: {{ temp_stream.get_mean() }} &#8451</h4></li>
+        <li><h4>Max: {{ temp_stream.get_max() }} &#8451</h4></li>
+        <li><h4>Min: {{ temp_stream.get_min() }} &#8451</h4></li>
+        <li><h4>Number of Measurements: {{ temp_stream.get_count() }}</h4></li>
+      </ul>
+    </div>
+    <div class="pure-u-2-3 vol" id="volc" hidden><img class="pure-img" src="http://api-m2x.att.com/v2/charts/e5a8a98fa22bbec97b6a9faa7fd75105.png?width=800&height=600"></div>
+    <div class="pure-u-1-3 vol" id="vol" hidden>
+      <h2 class="title">Water Volume</h2>
+      <ul>
+        <li><h4>Total water used: {{ flow_stream.get_total() }} L</h4></li>
+        <li><h4>Average volume of water per use: {{ flow_stream.get_mean() }} L</h4></li>
+        <li><h4>Most water used at once: {{ flow_stream.get_max() }} L</h4></li>
+        <li><h4>Number of faucet uses: {{ flow_stream.get_count() }}</h4></li>      
+      </ul>
+    </div>
+    <div class="pure-u-2-3 temp" hidden><img class="pure-img" src="http://api-m2x.att.com/v2/charts/5931ac2d1f60e03160c977c3a903cb3a.png?width=800&height=600"></div>
+    <div class="pure-u-1-3 temp" hidden>
+      <h2 class="title">Water Temperature</h2>
+      <ul>
+        <li><h4>Average: {{ temp_stream.get_mean() }} &#8451</h4></li>
+        <li><h4>Max: {{ temp_stream.get_max() }} &#8451</h4></li>
+        <li><h4>Min: {{ temp_stream.get_min() }} &#8451</h4></li>
+        <li><h4>Number of Measurements: {{ temp_stream.get_count() }}</h4></li>
+      </ul>
+    </div>
+  </span>
+{% endblock %}
