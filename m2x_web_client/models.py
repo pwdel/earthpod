@@ -11,7 +11,7 @@ class StreamParser(object):
         self.count = self.stats['stats']['count']
 
     def return_rounded_unicode(self, value):
-        return unicode(round(float(value), 2))
+        return str(round(float(value), 2))
 
     def get_mean(self):
         return self.return_rounded_unicode(self.mean)
