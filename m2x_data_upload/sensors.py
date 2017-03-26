@@ -3,7 +3,7 @@ import glob
 
 
 class OneWireTempSensor(object):
-    base_dir = '/sys/bus/w1/devices/'  # only on pi
+    base_dir = 'tests/devices/'  # only on pi
     test_dir = 'tests/devices/'
     temperature_file = '/w1_slave'
 
@@ -41,7 +41,7 @@ class OneWireTempSensor(object):
         return self.tempf
 
     @classmethod
-    def find_temp_sensors(cls, testing=False):
+    def find_temp_sensors(cls, testing=True):
         """
         Need to make sure modprobe w1-gpio and modprobe w1-therm modules
         are running 

@@ -6,7 +6,7 @@ MODULE2="w1_therm"
 if lsmod | grep "$MODULE1" && lsmod | grep "$MODULE2" ; then
   echo "$MODULE1 and $MODULE2 are loaded!"
   echo "Running faucet monitor script..."
-  python main.py
+  python3 main.py
   exit 0
 else
   echo "Loading modules w1_gpio and w1_therm..."
@@ -14,7 +14,7 @@ else
   modprobe w1-therm
   echo "Modules loaded."
   echo "Running faucet monitor script..."
-  python main.py
+  python3 main.py
   exit 0
 fi
 

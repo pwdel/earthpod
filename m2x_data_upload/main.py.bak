@@ -42,7 +42,7 @@ GPIO.add_event_detect(22, GPIO.RISING, callback=click, bouncetime=20)
 try:
     while True:
         currentTime = int(time.time() * FlowMeter.MS_IN_A_SECOND)
-        if (flowmeter.thisFlow > 0.0 and currentTime - flowmeter.lastClick > 10000):
+        if (flowmeter.thisFlow > 0.1 and currentTime - flowmeter.lastClick > 10000):
             postTime = to_iso(datetime.utcnow())
             flow_stream.add_value(flowmeter.getThisFlow(), postTime)
             temp_stream.add_value(flowmeter.checkTempC(), postTime)
