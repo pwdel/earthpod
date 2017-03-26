@@ -42,8 +42,9 @@ GPIO.add_event_detect(22, GPIO.RISING, callback=click, bouncetime=20)
 try:
     while True:
         currentTime = int(time.time() * FlowMeter.MS_IN_A_SECOND)
-        if (flowmeter.thisFlow > 0.0 and currentTime - flowmeter.lastClick > 10000):
+        if (flowmeter.thisFlow > 0.0 and currentTime - flowmeter.lastClick > 100):
             postTime = to_iso(datetime.utcnow())
+            print("Sending values to m2x")
             flow_stream.add_value(flowmeter.getThisFlow(), postTime)
             temp_stream.add_value(flowmeter.checkTempC(), postTime)
             flowmeter.thisFlow = 0.0
